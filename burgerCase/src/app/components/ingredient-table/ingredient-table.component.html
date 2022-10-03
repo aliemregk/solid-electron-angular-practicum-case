@@ -1,0 +1,61 @@
+<div class="w-100">
+  <table class="table text-center align-middle">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Stock</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of ingredients">
+        <td>
+          {{ item.name }}
+        </td>
+        <td>
+          {{ item.stock }}
+        </td>
+        <td *ngIf="item.canOrdered">Avaliable to order</td>
+        <td *ngIf="!item.canOrdered" class="unavaliable-ones">
+          Unavaliable to order
+        </td>
+      </tr>
+      <tr *ngFor="let item of extras">
+        <td>
+          {{ item.name }}
+        </td>
+        <td>
+          {{ item.stock }}
+        </td>
+        <td *ngIf="item.canOrdered">Avaliable to order</td>
+        <td *ngIf="!item.canOrdered" class="unavaliable-ones">
+          Unavaliable to order
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{ bread.name }}
+        </td>
+        <td>
+          {{ bread.stock }}
+        </td>
+        <td *ngIf="bread.canOrdered">Avaliable to order</td>
+        <td *ngIf="!bread.canOrdered" class="unavaliable-ones">
+          Unavaliable to order
+        </td>
+      </tr>
+      <tr *ngFor="let meatType of meats">
+        <td>
+          {{ meatType.name }}
+        </td>
+        <td>
+          {{ meatType.stock }}
+        </td>
+        <td *ngIf="meatType.canOrdered">Avaliable to order</td>
+        <td *ngIf="!meatType.canOrdered" class="unavaliable-ones">
+          Unavaliable to order
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

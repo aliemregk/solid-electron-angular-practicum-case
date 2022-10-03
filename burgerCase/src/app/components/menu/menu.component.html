@@ -1,0 +1,52 @@
+<div>
+  <p class="h6 my-2">Select ingredients:</p>
+  <ul class="nav">
+    <li class="nav-item" *ngFor="let item of ingredients">
+      <button
+        type="button"
+        class="btn btn-outline-success m-1"
+        (click)="addToOrder(item)"
+        [disabled]="canOrdered(item)"
+      >
+        {{ item.name }}
+      </button>
+    </li>
+  </ul>
+  <p class="h6 my-2">Select meat:</p>
+  <ul class="nav" *ngFor="let meatType of meats">
+    <li class="nav-item">
+      <button
+        type="button"
+        class="btn btn-outline-success m-1"
+        (click)="addToOrder(meatType)"
+        [disabled]="canOrdered(meatType)"
+      >
+        {{ meatType.name }}
+      </button>
+      <span *ngIf="isMeatball() && meatType.name === 'Meatball'">
+        <button
+          *ngFor="let cookingDegree of cookingDegrees"
+          type="button"
+          class="btn btn-outline-success m-1"
+          (click)="setCookingDegree(cookingDegree)"
+          [disabled]="isCookingDegreeSelected"
+        >
+          {{ cookingDegree.name }}
+        </button>
+      </span>
+    </li>
+  </ul>
+  <p class="h6 my-2">Select extras:</p>
+  <ul class="nav">
+    <li class="nav-item" *ngFor="let item of extras">
+      <button
+        type="button"
+        class="btn btn-outline-success m-1"
+        (click)="addToOrder(item)"
+        [disabled]="canOrdered(item)"
+      >
+        {{ item.name }}
+      </button>
+    </li>
+  </ul>
+</div>

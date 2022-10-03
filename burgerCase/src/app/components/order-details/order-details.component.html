@@ -1,0 +1,31 @@
+<div class="w-100">
+  <p class="h4 my-2">Order Details</p>
+  <ul class="nav justify-content-center">
+    <li
+      class="nav-item me-4 my-1 p-2 order-items"
+      *ngFor="let item of orderDetails"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+  <ul class="nav my-4">
+    <li class="nav-item m-auto">
+      <button
+        type="button"
+        class="btn btn-primary me-1"
+        (click)="confirmOrder()"
+        [disabled]="processStatus"
+      >
+        Confirm Order
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="cancelOrder()"
+        [disabled]="processStatus"
+      >
+        Cancel Order
+      </button>
+    </li>
+  </ul>
+</div>
